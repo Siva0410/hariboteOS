@@ -1,8 +1,8 @@
 #asm.bat
 helloos.img
 haribote.img
-ipl.bin
-ipl.lst
+ipl*.bin
+ipl*.lst
 #helloos.nas
 install.bat
 #run.bat
