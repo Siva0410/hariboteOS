@@ -1,6 +1,8 @@
 #asm.bat
 helloos.img
 haribote.img
+haribote.lst
+haribote.sys
 ipl*.bin
 ipl*.lst
 #helloos.nas
