@@ -30,7 +30,6 @@ entry:
 	MOV	SS, AX
 	MOV	SP, 0x7c00
 	MOV	DS, AX
-	MOV	ES, AX
 
 	;; ディスクを読みこむ
 	MOV	AX, 0x0820
@@ -48,7 +47,7 @@ retry:
 	MOV	BX, 0
 	MOV	DL, 0x00
 	INT	0x13
-	JNC	fin
+	JNC	next
 	ADD	SI, 1
 	CMP	SI, 5
 	JAE	error
@@ -72,6 +71,9 @@ next:
 	ADD	CH, 1
 	CMP	CH, CYLS
 	JB	readloop
+
+	MOV	[0x0ff0], CH
+	JMP	0xc200
 
 error:
 	MOV	AX, 0
