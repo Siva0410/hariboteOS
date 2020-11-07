@@ -1,6 +1,6 @@
 	;; hello-os
 	;; TAB=4
-	CYLS	EQU	10
+CYLS	EQU	10
 	ORG	0x7c00
 	;; FAT12 format
 	JMP	entry
@@ -34,7 +34,7 @@ entry:
 	;; ディスクを読みこむ
 	MOV	AX, 0x0820
 	MOV	ES, AX
-	MOB	CH, 0
+	MOV	CH, 0
 	MOV	DH, 0
 	MOV	CL, 2
 
