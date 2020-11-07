@@ -3,6 +3,8 @@ helloos.img
 haribote.img
 haribote.lst
 haribote.sys
+asmhead.lst
+asmhead.sys
 ipl*.bin
 ipl*.lst
 #helloos.nas
