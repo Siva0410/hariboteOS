@@ -47,6 +47,9 @@ void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0, i
 void init_screen(char *vram, int xsize, int ysize);
 void putfonts8_asc(char *vram, int xsize, int x, int y, char c, unsigned char *s);
 void putfont8(char *vram, int xsize, int x, int y, char c, char *font);
+void init_mouse_cursor8(char *mouse, char bc);
+void putblock8_8(char *vram, int vxsize, int pxsize, int pysize, int px0, int py0, char *buf, int bxsize);
+
 void init_gdtidt(void);
 void set_segmdesc(struct SEGMENT_DESCRIPTOR *sd, unsigned int limit, int base, int ar);
 void set_gatedesc(struct GATE_DESCRIPTOR *gd, int offset, int selector, int ar);
@@ -227,7 +230,7 @@ void init_gdtidt(void){
   int i;
 
   //GDTèâä˙âª
-  for(*i = 0; i < 8192; i++){
+  for( i = 0; i < 8192; i++){
     set_segmdesc(gdt + i, 0, 0, 0);
   }
   set_segmdesc(gdt + 1, 0xffffffff, 0x00000000, 0x4092);
@@ -235,7 +238,7 @@ void init_gdtidt(void){
   load_gdtr(0xffff, 0x00270000);
 
   //GDTèâä˙âª
-  for(*i = 0; i < 256; i++){
+  for( i = 0; i < 256; i++){
     set_gatedesc(idt + i, 0, 0, 0);
   }
   load_idtr(0x7ff, 0x0026f800);
