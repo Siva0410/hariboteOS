@@ -4,6 +4,8 @@
 *.gas
 *.obj
 *.sys
+graphic.nas
+dsctbl.nas
 helloos.img
 haribote.img
 bootpack.nas
